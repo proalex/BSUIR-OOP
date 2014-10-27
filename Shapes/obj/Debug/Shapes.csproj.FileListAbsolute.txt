@@ -1,0 +1,13 @@
+D:\C#\OOP\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+D:\C#\OOP\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+D:\C#\OOP\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+D:\C#\OOP\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+D:\C#\BSUIR-OOP\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+D:\C#\BSUIR-OOP\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+D:\C#\BSUIR-OOP\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+D:\C#\BSUIR-OOP\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+D:\C#\BSUIR-OOP\Shapes\bin\Debug\Shapes.dll
+D:\C#\BSUIR-OOP\Shapes\bin\Debug\Shapes.pdb
+D:\C#\BSUIR-OOP\Shapes\obj\Debug\Shapes.dll
+D:\C#\BSUIR-OOP\Shapes\obj\Debug\Shapes.pdb
+D:\C#\BSUIR-OOP\Shapes\obj\Debug\Shapes.csprojResolveAssemblyReference.cache
