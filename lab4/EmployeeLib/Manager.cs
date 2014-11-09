@@ -2,13 +2,14 @@
 
 namespace EmployeeLib
 {
+    [JobNameAttribute("Manager")]
+    [SerializableAttribute]
     public sealed class Manager : Employee
     {
-        public override string Task { get; protected set; }
-        public override string Job
+        public override string Task { get; set; }
+
+        private Manager()
         {
-            get { return "Manager"; }
-            protected set { }
         }
 
         public Manager(string name, string secondName, Qualification qualification, string task)

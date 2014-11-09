@@ -1,0 +1,11 @@
+D:\BSUIR\BSUIR-OOP\lab4\UI\bin\Debug\UI.exe.config
+D:\BSUIR\BSUIR-OOP\lab4\UI\obj\Debug\UI.csprojResolveAssemblyReference.cache
+D:\BSUIR\BSUIR-OOP\lab4\UI\obj\Debug\UI.Properties.Resources.resources
+D:\BSUIR\BSUIR-OOP\lab4\UI\obj\Debug\UI.csproj.GenerateResource.Cache
+D:\BSUIR\BSUIR-OOP\lab4\UI\bin\Debug\UI.exe
+D:\BSUIR\BSUIR-OOP\lab4\UI\bin\Debug\UI.pdb
+D:\BSUIR\BSUIR-OOP\lab4\UI\obj\Debug\UI.exe
+D:\BSUIR\BSUIR-OOP\lab4\UI\obj\Debug\UI.pdb
+D:\BSUIR\BSUIR-OOP\lab4\UI\bin\Debug\EmployeeLib.dll
+D:\BSUIR\BSUIR-OOP\lab4\UI\bin\Debug\EmployeeLib.pdb
+D:\BSUIR\BSUIR-OOP\lab4\UI\obj\Debug\UI.Form1.resources

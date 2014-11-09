@@ -1,0 +1,132 @@
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using System.Windows.Forms;
+using EmployeeLib;
+using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
+
+namespace UI
+{
+    public partial class Form1 : Form
+    {
+        protected Type[] _jobs;
+        protected List<Employee> employees = new List<Employee>();
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            foreach (var qualification in Enum.GetNames(typeof(Qualification)))
+            {
+                comboBox2.Items.Add(qualification);
+            }
+
+            _jobs = Assembly.GetAssembly(typeof(Employee)).GetTypes()
+                .Where(t => t.IsSubclassOf(typeof(Employee))).ToArray();
+
+            foreach (var job in _jobs)
+            {
+                if (job.IsAbstract)
+                    continue;
+
+                comboBox1.Items.Add(job.GetCustomAttribute<JobNameAttribute>().JobName);
+            }
+        }
+
+        private void comboBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string name = textBox1.Text;
+            string secondName = textBox3.Text;
+            string jobName = comboBox1.Text;
+            string qualificationName = comboBox2.Text;
+            string task = textBox2.Text;
+
+            if (name.Length == 0 || secondName.Length == 0 || jobName.Length == 0
+                || qualificationName.Length == 0 || task.Length == 0)
+            {
+                MessageBox.Show("Fill all fields!");
+                return;
+            }
+
+            foreach (var job in _jobs)
+            {
+                if (job.IsAbstract)
+                    continue;
+
+                if (job.GetCustomAttribute<JobNameAttribute>().JobName
+                    .Equals(jobName, StringComparison.Ordinal))
+                {
+                    Qualification qualification =
+                        (Qualification)Enum.Parse(typeof(Qualification), qualificationName);
+                    var employee = (Employee)Activator
+                        .CreateInstance(job, name, secondName, qualification, task);
+                    employees.Add(employee);
+                    dataGridView1.Rows.Add(name, secondName, jobName, qualification, task);
+                    break;
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Stream stream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Employee>));
+
+            openFileDialog1.Filter = "xml files (*.xml)|*.xml";
+            employees.Clear();
+            dataGridView1.Rows.Clear();
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((stream = openFileDialog1.OpenFile()) != null)
+                    {
+                        using (stream)
+                        {
+                            employees = serializer.Deserialize(stream);
+                        }
+                    }
+                }
+                catch (IOException)
+                {
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDlg = new SaveFileDialog();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Employee>));
+
+            saveFileDlg.Filter = "xml files (*.xml)|*.xml";
+
+            if (saveFileDlg.ShowDialog() == DialogResult.OK && saveFileDlg.FileName != "")
+            {
+                try
+                {
+                    using (Stream stream = File.Open(saveFileDlg.FileName, FileMode.Create))
+                    {
+                        serializer.Serialize(stream, employees);
+                    }
+                }
+                catch (IOException)
+                {
+                }
+            }
+        }
+    }
+}

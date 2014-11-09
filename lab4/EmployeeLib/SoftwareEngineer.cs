@@ -2,13 +2,14 @@
 
 namespace EmployeeLib
 {
+    [JobNameAttribute("Software Engineer")]
+    [SerializableAttribute]
     public sealed class SoftwareEngineer : Employee
     {
-        public override string Task { get; protected set; }
-        public override string Job
+        public override string Task { get; set; }
+
+        private SoftwareEngineer()
         {
-            get { return "Software Engineer"; }
-            protected set { }
         }
 
         public SoftwareEngineer(string name, string secondName, Qualification qualification, string task)

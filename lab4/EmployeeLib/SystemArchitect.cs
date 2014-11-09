@@ -1,12 +1,14 @@
-﻿namespace EmployeeLib
+﻿using System;
+namespace EmployeeLib
 {
+    [JobNameAttribute("System Architect")]
+    [SerializableAttribute]
     public sealed class SystemArchitect : Architect
     {
-        public override string Task { get; protected set; }
-        public override string Job
+        public override string Task { get; set; }
+
+        private SystemArchitect()
         {
-            get { return "System Architect"; }
-            protected set { }
         }
 
         public SystemArchitect(string name, string secondName, Qualification qualification, string task)

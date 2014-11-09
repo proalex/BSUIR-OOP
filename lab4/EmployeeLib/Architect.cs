@@ -4,6 +4,10 @@ namespace EmployeeLib
 {
     public abstract class Architect : Employee
     {
+        protected Architect()
+        {
+        }
+
         public Architect(string name, string secondName, Qualification qualification, string task)
             : base(name, secondName, qualification)
         {

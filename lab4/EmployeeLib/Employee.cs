@@ -1,14 +1,24 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace EmployeeLib
 {
+    [XmlInclude(typeof(Manager))]
+    [XmlInclude(typeof(QATester))]
+    [XmlInclude(typeof(SoftwareEngineer))]
+    [XmlInclude(typeof(SolutionArchitect))]
+    [XmlInclude(typeof(SystemArchitect))]
     public abstract class Employee
-    {
-        public string Name { get; private set; }
-        public string SecondName { get; private set; }
-        public Qualification Qualification { get; private set; }
-        public virtual string Task { get; protected set; }
-        public virtual string Job { get; protected set; }
+    { 
+        public string Name { get; set; }
+        public string SecondName { get; set; }
+        public Qualification Qualification { get; set; }
+        public virtual string Task { get; set; }
+
+        protected Employee()
+        {
+        }
 
         protected Employee(string name, string secondName, Qualification qualification)
         {
@@ -21,11 +31,6 @@ namespace EmployeeLib
             Name = name;
             SecondName = secondName;
             Qualification = qualification;
-        }
-
-        public override string ToString()
-        {
-            return Name + " " + SecondName + " " + Qualification + " " + Job;
         }
     }
 }
