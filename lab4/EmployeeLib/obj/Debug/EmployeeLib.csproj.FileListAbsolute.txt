@@ -2,3 +2,4 @@ D:\BSUIR\BSUIR-OOP\lab4\EmployeeLib\bin\Debug\EmployeeLib.dll
 D:\BSUIR\BSUIR-OOP\lab4\EmployeeLib\bin\Debug\EmployeeLib.pdb
 D:\BSUIR\BSUIR-OOP\lab4\EmployeeLib\obj\Debug\EmployeeLib.dll
 D:\BSUIR\BSUIR-OOP\lab4\EmployeeLib\obj\Debug\EmployeeLib.pdb
+D:\BSUIR\BSUIR-OOP\lab4\EmployeeLib\obj\Debug\EmployeeLib.csprojResolveAssemblyReference.cache
